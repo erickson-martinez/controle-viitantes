@@ -40,17 +40,17 @@ class UsuarioManager(BaseUserManager):
 class Usuario(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(
-        verbose_name="E-mai del usuario", max_length=194, unique=True
+        verbose_name="E-mail do usuário", max_length=194, unique=True
     )
 
-    is_active = models.BooleanField(verbose_name="Usuario ativo", default=True)
+    is_active = models.BooleanField(verbose_name="Usuário ativo", default=True)
 
     is_staff = models.BooleanField(
-        verbose_name="Usuario é da equipe de desenvolvimento", default=False
+        verbose_name="Usuário é da equipe de desenvolvimento", default=False
     )
 
     is_superuser = models.BooleanField(
-        verbose_name="Usuario é superusuario", default=False
+        verbose_name="Usuário é superusuario", default=False
     )
 
     USERNAME_FIELD = "email"
@@ -63,4 +63,4 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
         db_table = "usuarios"
 
     def __str__(self):
-        return self.name
+        return self.email
